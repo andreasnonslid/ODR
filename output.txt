@@ -1,0 +1,354 @@
+Script started on 2024-05-23 23:29:58+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="95" LINES="56"]
+Removing existing build directory...
+Creating build directory...
+Installing Conan dependencies...
+[1m[35m
+======== Input profiles ========[0m
+[1m[36mProfile host:[0m
+[settings]
+arch=x86_64
+build_type=Debug
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+[0m
+[1m[36mProfile build:[0m
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.cppstd=gnu17
+compiler.libcxx=libstdc++11
+compiler.version=11
+os=Linux
+[0m
+[1m[35m
+======== Computing dependency graph ========[0m
+[1m[33mGraph root[0m
+[1m[36m    conanfile.txt: /home/anh/dev/cmake/test/conanfile.txt[0m
+[1m[33mRequirements[0m
+[1m[36m    gtest/1.14.0#25e2a474b4d1aecf5ff4f0555dcdf72c - Cache[0m
+[1m[35m
+======== Computing necessary packages ========[0m
+[1m[33mRequirements[0m
+[1m[36m    gtest/1.14.0#25e2a474b4d1aecf5ff4f0555dcdf72c:4b519e65a990ffa0368490fd0146d01321172ff2#223b4b8651cb36784889dddcbb875c06 - Cache[0m
+[1m[35m
+======== Installing packages ========[0m
+[1m[32mgtest/1.14.0:[0m [1m[32mAlready installed! (1 of 1)[0m
+[33mWARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:[0m
+[33mWARN: deprecated:     'cpp_info.names' used in: gtest/1.14.0[0m
+[1m[35m
+======== Finalizing install (deploy, generators) ========[0m
+[1m[35mconanfile.txt:[0m [1m[35mWriting generators to /home/anh/dev/cmake/test/build/Debug/generators[0m
+conanfile.txt:[0m Generator 'CMakeDeps' calling 'generate()'[0m
+[36mconanfile.txt:[0m [36mCMakeDeps necessary find_package() and targets for your CMakeLists.txt
+    find_package(GTest)
+    target_link_libraries(... gtest::gtest)[0m
+conanfile.txt:[0m Generator 'CMakeToolchain' calling 'generate()'[0m
+conanfile.txt:[0m CMakeToolchain generated: conan_toolchain.cmake[0m
+[36mconanfile.txt:[0m [36mCMakeToolchain: Preset 'conan-debug' added to CMakePresets.json.
+    (cmake>=3.23) cmake --preset conan-debug
+    (cmake<3.23) cmake <path> -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE=generators/conan_toolchain.cmake  -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Debug[0m
+conanfile.txt:[0m CMakeToolchain generated: /home/anh/dev/cmake/test/build/Debug/generators/CMakePresets.json[0m
+conanfile.txt:[0m CMakeToolchain generated: /home/anh/dev/cmake/test/CMakeUserPresets.json[0m
+[1m[35mconanfile.txt:[0m [1m[35mGenerating aggregated env files[0m
+conanfile.txt:[0m Generated aggregated env files: ['conanbuild.sh', 'conanrun.sh'][0m
+[1m[32mInstall finished successfully[0m
+[0mConfiguring project with CMake...
+-- Using Conan toolchain: /home/anh/dev/cmake/test/build/Debug/generators/conan_toolchain.cmake
+-- Conan toolchain: C++ Standard 17 with extensions ON
+-- The C compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Conan: Component target declared 'GTest::gtest'
+-- Conan: Component target declared 'GTest::gtest_main'
+-- Conan: Component target declared 'GTest::gmock'
+-- Conan: Component target declared 'GTest::gmock_main'
+-- Conan: Target declared 'gtest::gtest'
+-- Configuring done (1.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/anh/dev/cmake/test/build
+Building the project...
+[  3%] [32mBuilding C object CMakeFiles/my-test_exe.dir/source/main.c.o[0m
+[  6%] [32mBuilding C object CMakeFiles/my-test_exe.dir/source/file_using_lib.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/my-test_exe.dir/source/lib.c.o[0m
+[ 13%] [32m[1mLinking C executable my-test[0m
+[ 13%] Built target my-test_exe
+[ 16%] [32mBuilding CXX object test/CMakeFiles/all_tests.dir/source/test_file_using_lib.cpp.o[0m
+[ 20%] [32mBuilding CXX object test/CMakeFiles/all_tests.dir/source/test_lib.cpp.o[0m
+[ 23%] [32m[1mLinking CXX executable all_tests[0m
+[ 23%] Built target all_tests
+[ 26%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock.dir/source/test_file_using_lib.cpp.o[0m
+[ 30%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock.dir/source/test_lib.cpp.o[0m
+[ 33%] [32m[1mLinking CXX executable all_tests_w_mock[0m
+/usr/bin/ld: CMakeFiles/all_tests_w_mock.dir/source/test_lib.cpp.o: in function `bool std::__constant_string_p<char>(char const*)':
+/home/anh/dev/cmake/test/test/source/../../source/lib.c:3: multiple definition of `int_add'; CMakeFiles/all_tests_w_mock.dir/source/test_file_using_lib.cpp.o:/home/anh/dev/cmake/test/test/source/mock_lib.cpp:2: first defined here
+/usr/bin/ld: CMakeFiles/all_tests_w_mock.dir/source/test_lib.cpp.o: in function `testing::internal::FloatingPoint<float>::exponent_bits() const':
+/home/anh/dev/cmake/test/test/source/../../source/lib.c:7: multiple definition of `float_add'; CMakeFiles/all_tests_w_mock.dir/source/test_file_using_lib.cpp.o:/home/anh/dev/cmake/test/test/source/mock_lib.cpp:6: first defined here
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [test/CMakeFiles/all_tests_w_mock.dir/build.make:117: test/all_tests_w_mock] Error 1
+gmake[2]: Target 'test/CMakeFiles/all_tests_w_mock.dir/build' not remade because of errors.
+gmake[1]: *** [CMakeFiles/Makefile2:166: test/CMakeFiles/all_tests_w_mock.dir/all] Error 2
+[ 36%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_in_sourcelist.dir/source/test_file_using_lib.cpp.o[0m
+[ 40%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_in_sourcelist.dir/source/test_lib.cpp.o[0m
+[ 43%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_in_sourcelist.dir/source/mock_lib.cpp.o[0m
+[ 46%] [32m[1mLinking CXX executable all_tests_w_mock_in_sourcelist[0m
+[ 46%] Built target all_tests_w_mock_in_sourcelist
+[ 50%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_first_in_sourcelist.dir/source/test_file_using_lib.cpp.o[0m
+[ 53%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_first_in_sourcelist.dir/source/test_lib.cpp.o[0m
+[ 56%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_first_in_sourcelist.dir/source/mock_lib.cpp.o[0m
+[ 60%] [32m[1mLinking CXX executable all_tests_w_mock_first_in_sourcelist[0m
+[ 60%] Built target all_tests_w_mock_first_in_sourcelist
+[ 63%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/test_file_using_lib.cpp.o[0m
+[ 66%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/test_lib.cpp.o[0m
+[ 70%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/mock_lib.cpp.o[0m
+[ 73%] [32m[1mLinking CXX executable all_tests_w_mock_in_sourcelist_no_extern[0m
+/usr/bin/ld: CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/mock_lib.cpp.o: in function `int_add(int, int)':
+/home/anh/dev/cmake/test/test/source/mock_lib.cpp:2: multiple definition of `int_add(int, int)'; CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/test_lib.cpp.o:/home/anh/dev/cmake/test/test/source/../../source/lib.c:3: first defined here
+/usr/bin/ld: CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/mock_lib.cpp.o: in function `float_add(float, float)':
+/home/anh/dev/cmake/test/test/source/mock_lib.cpp:6: multiple definition of `float_add(float, float)'; CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/test_lib.cpp.o:/home/anh/dev/cmake/test/test/source/../../source/lib.c:7: first defined here
+/usr/bin/ld: CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/test_file_using_lib.cpp.o: in function `print_int_add':
+/home/anh/dev/cmake/test/test/source/../../source/file_using_lib.c:6: undefined reference to `int_add'
+/usr/bin/ld: CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/source/test_file_using_lib.cpp.o: in function `print_float_add':
+/home/anh/dev/cmake/test/test/source/../../source/file_using_lib.c:12: undefined reference to `float_add'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [test/CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/build.make:133: test/all_tests_w_mock_in_sourcelist_no_extern] Error 1
+gmake[2]: Target 'test/CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/build' not remade because of errors.
+gmake[1]: *** [CMakeFiles/Makefile2:244: test/CMakeFiles/all_tests_w_mock_in_sourcelist_no_extern.dir/all] Error 2
+[ 76%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/test_file_using_lib.cpp.o[0m
+[ 80%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/test_lib.cpp.o[0m
+[ 83%] [32mBuilding CXX object test/CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/mock_lib.cpp.o[0m
+[ 86%] [32m[1mLinking CXX executable all_tests_w_mock_first_in_sourcelist_no_extern[0m
+/usr/bin/ld: CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/mock_lib.cpp.o: in function `int_add(int, int)':
+/home/anh/dev/cmake/test/test/source/mock_lib.cpp:2: multiple definition of `int_add(int, int)'; CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/test_lib.cpp.o:/home/anh/dev/cmake/test/test/source/../../source/lib.c:3: first defined here
+/usr/bin/ld: CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/mock_lib.cpp.o: in function `float_add(float, float)':
+/home/anh/dev/cmake/test/test/source/mock_lib.cpp:6: multiple definition of `float_add(float, float)'; CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/test_lib.cpp.o:/home/anh/dev/cmake/test/test/source/../../source/lib.c:7: first defined here
+/usr/bin/ld: CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/test_file_using_lib.cpp.o: in function `print_int_add':
+/home/anh/dev/cmake/test/test/source/../../source/file_using_lib.c:6: undefined reference to `int_add'
+/usr/bin/ld: CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/source/test_file_using_lib.cpp.o: in function `print_float_add':
+/home/anh/dev/cmake/test/test/source/../../source/file_using_lib.c:12: undefined reference to `float_add'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [test/CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/build.make:133: test/all_tests_w_mock_first_in_sourcelist_no_extern] Error 1
+gmake[2]: Target 'test/CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/build' not remade because of errors.
+gmake[1]: *** [CMakeFiles/Makefile2:270: test/CMakeFiles/all_tests_w_mock_first_in_sourcelist_no_extern.dir/all] Error 2
+[ 90%] [32mBuilding CXX object test/CMakeFiles/test_file_using_lib.dir/source/test_file_using_lib.cpp.o[0m
+[ 93%] [32m[1mLinking CXX executable test_file_using_lib[0m
+[ 93%] Built target test_file_using_lib
+[ 96%] [32mBuilding CXX object test/CMakeFiles/test_lib.dir/source/test_lib.cpp.o[0m
+[100%] [32m[1mLinking CXX executable test_lib[0m
+[100%] Built target test_lib
+gmake[1]: Target 'all' not remade because of errors.
+gmake: *** [Makefile:91: all] Error 2
+gmake: Target 'default_target' not remade because of errors.
+Running tests...
+
+
+ALL TESTS
+
+Running main() from gmock_main.cc
+[0;32m[==========] [mRunning 4 tests from 2 test suites.
+[0;32m[----------] [mGlobal test environment set-up.
+[0;32m[----------] [m2 tests from test_file_using_lib
+[0;32m[ RUN      ] [mtest_file_using_lib.int_add
+3
+[0;32m[       OK ] [mtest_file_using_lib.int_add (0 ms)
+[0;32m[ RUN      ] [mtest_file_using_lib.float_add
+4.500000
+/home/anh/dev/cmake/test/test/source/test_file_using_lib.cpp:29: Failure
+Expected equality of these values:
+  actual
+    Which is: 4.5
+  expected
+    Which is: 3.5
+
+[0;31m[  FAILED  ] [mtest_file_using_lib.float_add (0 ms)
+[0;32m[----------] [m2 tests from test_file_using_lib (0 ms total)
+
+[0;32m[----------] [m2 tests from test_lib
+[0;32m[ RUN      ] [mtest_lib.int_add
+[0;32m[       OK ] [mtest_lib.int_add (0 ms)
+[0;32m[ RUN      ] [mtest_lib.float_add
+/home/anh/dev/cmake/test/test/source/test_lib.cpp:29: Failure
+Expected equality of these values:
+  actual
+    Which is: 4.5
+  expected
+    Which is: 3.5
+
+[0;31m[  FAILED  ] [mtest_lib.float_add (0 ms)
+[0;32m[----------] [m2 tests from test_lib (0 ms total)
+
+[0;32m[----------] [mGlobal test environment tear-down
+[0;32m[==========] [m4 tests from 2 test suites ran. (0 ms total)
+[0;32m[  PASSED  ] [m2 tests.
+[0;31m[  FAILED  ] [m2 tests, listed below:
+[0;31m[  FAILED  ] [mtest_file_using_lib.float_add
+[0;31m[  FAILED  ] [mtest_lib.float_add
+
+ 2 FAILED TESTS
+
+
+ALL TESTS WITH MOCK
+
+./buildall.sh: line 45: ./test/all_tests_w_mock: No such file or directory
+
+
+ALL TESTS WITH MOCK IN SOURCELIST
+
+Running main() from gmock_main.cc
+[0;32m[==========] [mRunning 4 tests from 2 test suites.
+[0;32m[----------] [mGlobal test environment set-up.
+[0;32m[----------] [m2 tests from test_file_using_lib
+[0;32m[ RUN      ] [mtest_file_using_lib.int_add
+3
+[0;32m[       OK ] [mtest_file_using_lib.int_add (0 ms)
+[0;32m[ RUN      ] [mtest_file_using_lib.float_add
+4.500000
+/home/anh/dev/cmake/test/test/source/test_file_using_lib.cpp:29: Failure
+Expected equality of these values:
+  actual
+    Which is: 4.5
+  expected
+    Which is: 3.5
+
+[0;31m[  FAILED  ] [mtest_file_using_lib.float_add (0 ms)
+[0;32m[----------] [m2 tests from test_file_using_lib (0 ms total)
+
+[0;32m[----------] [m2 tests from test_lib
+[0;32m[ RUN      ] [mtest_lib.int_add
+[0;32m[       OK ] [mtest_lib.int_add (0 ms)
+[0;32m[ RUN      ] [mtest_lib.float_add
+/home/anh/dev/cmake/test/test/source/test_lib.cpp:29: Failure
+Expected equality of these values:
+  actual
+    Which is: 4.5
+  expected
+    Which is: 3.5
+
+[0;31m[  FAILED  ] [mtest_lib.float_add (0 ms)
+[0;32m[----------] [m2 tests from test_lib (0 ms total)
+
+[0;32m[----------] [mGlobal test environment tear-down
+[0;32m[==========] [m4 tests from 2 test suites ran. (0 ms total)
+[0;32m[  PASSED  ] [m2 tests.
+[0;31m[  FAILED  ] [m2 tests, listed below:
+[0;31m[  FAILED  ] [mtest_file_using_lib.float_add
+[0;31m[  FAILED  ] [mtest_lib.float_add
+
+ 2 FAILED TESTS
+
+
+ALL TESTS WITH MOCK FIRST IN SOURCELIST
+
+Running main() from gmock_main.cc
+[0;32m[==========] [mRunning 4 tests from 2 test suites.
+[0;32m[----------] [mGlobal test environment set-up.
+[0;32m[----------] [m2 tests from test_file_using_lib
+[0;32m[ RUN      ] [mtest_file_using_lib.int_add
+3
+[0;32m[       OK ] [mtest_file_using_lib.int_add (0 ms)
+[0;32m[ RUN      ] [mtest_file_using_lib.float_add
+4.500000
+/home/anh/dev/cmake/test/test/source/test_file_using_lib.cpp:29: Failure
+Expected equality of these values:
+  actual
+    Which is: 4.5
+  expected
+    Which is: 3.5
+
+[0;31m[  FAILED  ] [mtest_file_using_lib.float_add (0 ms)
+[0;32m[----------] [m2 tests from test_file_using_lib (0 ms total)
+
+[0;32m[----------] [m2 tests from test_lib
+[0;32m[ RUN      ] [mtest_lib.int_add
+[0;32m[       OK ] [mtest_lib.int_add (0 ms)
+[0;32m[ RUN      ] [mtest_lib.float_add
+/home/anh/dev/cmake/test/test/source/test_lib.cpp:29: Failure
+Expected equality of these values:
+  actual
+    Which is: 4.5
+  expected
+    Which is: 3.5
+
+[0;31m[  FAILED  ] [mtest_lib.float_add (0 ms)
+[0;32m[----------] [m2 tests from test_lib (0 ms total)
+
+[0;32m[----------] [mGlobal test environment tear-down
+[0;32m[==========] [m4 tests from 2 test suites ran. (0 ms total)
+[0;32m[  PASSED  ] [m2 tests.
+[0;31m[  FAILED  ] [m2 tests, listed below:
+[0;31m[  FAILED  ] [mtest_file_using_lib.float_add
+[0;31m[  FAILED  ] [mtest_lib.float_add
+
+ 2 FAILED TESTS
+
+
+ALL TESTS WITH MOCK IN SOURCELIST WITHOUT EXTERN
+
+./buildall.sh: line 63: ./test/all_tests_w_mock_in_sourcelist_no_extern: No such file or directory
+
+
+ALL TESTS WITH MOCK FIRST IN SOURCELIST WITHOUT EXTERN
+
+./buildall.sh: line 69: ./test/all_tests_w_mock_first_in_sourcelist_no_extern: No such file or directory
+
+
+FILE USING LIB SOLO TARGET
+
+Running main() from gmock_main.cc
+[0;32m[==========] [mRunning 2 tests from 1 test suite.
+[0;32m[----------] [mGlobal test environment set-up.
+[0;32m[----------] [m2 tests from test_file_using_lib
+[0;32m[ RUN      ] [mtest_file_using_lib.int_add
+3
+[0;32m[       OK ] [mtest_file_using_lib.int_add (0 ms)
+[0;32m[ RUN      ] [mtest_file_using_lib.float_add
+3.500000
+[0;32m[       OK ] [mtest_file_using_lib.float_add (0 ms)
+[0;32m[----------] [m2 tests from test_file_using_lib (0 ms total)
+
+[0;32m[----------] [mGlobal test environment tear-down
+[0;32m[==========] [m2 tests from 1 test suite ran. (0 ms total)
+[0;32m[  PASSED  ] [m2 tests.
+
+
+LIB SOLO TARGET
+
+Running main() from gmock_main.cc
+[0;32m[==========] [mRunning 2 tests from 1 test suite.
+[0;32m[----------] [mGlobal test environment set-up.
+[0;32m[----------] [m2 tests from test_lib
+[0;32m[ RUN      ] [mtest_lib.int_add
+[0;32m[       OK ] [mtest_lib.int_add (0 ms)
+[0;32m[ RUN      ] [mtest_lib.float_add
+/home/anh/dev/cmake/test/test/source/test_lib.cpp:29: Failure
+Expected equality of these values:
+  actual
+    Which is: 4.5
+  expected
+    Which is: 3.5
+
+[0;31m[  FAILED  ] [mtest_lib.float_add (0 ms)
+[0;32m[----------] [m2 tests from test_lib (0 ms total)
+
+[0;32m[----------] [mGlobal test environment tear-down
+[0;32m[==========] [m2 tests from 1 test suite ran. (0 ms total)
+[0;32m[  PASSED  ] [m1 test.
+[0;31m[  FAILED  ] [m1 test, listed below:
+[0;31m[  FAILED  ] [mtest_lib.float_add
+
+ 1 FAILED TEST
+Read more: https://learn.microsoft.com/en-us/cpp/cpp/program-and-linkage-cpp?view=msvc-170
+
+Script done on 2024-05-23 23:30:08+02:00 [COMMAND_EXIT_CODE="0"]
