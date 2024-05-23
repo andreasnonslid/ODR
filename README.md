@@ -45,7 +45,7 @@ This will show how some builds fail, some builds succeed but work in quite odd w
 ## Results summarized
 When both test files are compiled into the same executable it fails in both test suites due to them using the function definitions of `lib.c` OR fails building if we don't use the `extern` keyword. (read: https://en.cppreference.com/w/cpp/language/definition).
 
-This means that you are stuck with the implementation from `lib.c` if you are testing a `C` file and can use `extern`, but can't even build with a mock implementation as it would break the ODR. Obviously, this is a result of the functions not being static, but that is exactly the point. Sometimes functions just are not static but would still be nice to test or will be used in something you want to test. It will then violate YOU before you are allowed to violate the ODR.
+This means that you are stuck with the implementation from `lib.c` if you are testing a `C` file and can use `extern`, but can't even build if it's a `C++` file with a mock implementation as it would break the ODR (although it already kinda does, but has a loophole with the extern keyword and how definitions work). Obviously, this is a result of the functions not being static, but that is exactly the point. Sometimes functions just are not static but would still be nice to test or will be used in something you want to test. It will then violate YOU before you are allowed to violate the ODR.
 
 Another perspective is that in **every** executable which had `test_file_using_lib.cpp` as a TU, only the targets which did not also have the `test_lib.cpp` as a TU correctly passed all tests.
 
